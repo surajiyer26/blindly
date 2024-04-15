@@ -15,6 +15,16 @@ function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate('Directions')}
         color="#16a085"
       />
+      <Button
+        title="Go to Compass"
+        onPress={() => navigation.navigate('Compass')}
+        color="#8e44ad"
+      />
+      <Button
+        title="Go to Map"
+        onPress={() => navigation.navigate('Map')}
+        color="#d35400"
+      />
     </View>
   );
 }

@@ -5,6 +5,8 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import NavigateScreen from './screens/NavigateScreen';
 import DirectionsScreen from './screens/DirectionsScreen';
+import CompassScreen from './screens/CompassScreen';
+import MapScreen from './screens/MapScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +18,8 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Navigate" component={NavigateScreen} />
         <Stack.Screen name="Directions" component={DirectionsScreen} />
+        <Stack.Screen name="Compass" component={CompassScreen} />
+        <Stack.Screen name="Map" component={MapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
