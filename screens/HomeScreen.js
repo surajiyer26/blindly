@@ -30,24 +30,19 @@ const HomeScreen = ({ navigation }) => {
         accessibilityLabel="Blind person using the BlindNav app"
       />
       <Text style={styles.description}>
-        SeeThrough is a navigation app designed for the visually impaired,
+        SeeThru is a navigation app designed for the visually impaired,
         providing audio guidance and detailed descriptions of surroundings.
       </Text>
       <Text style={styles.featureDescription}>
         Get step-by-step audio instructions to navigate safely through streets,
         buildings, and public transport.
       </Text>
-      <TouchableOpacity
-        style={[styles.button, { backgroundColor: "#6A776E" }]}
-        onPress={() => navigation.navigate("Navigate")}
-      >
-        <Text style={styles.buttonText}>Start Navigation</Text>
-      </TouchableOpacity>
+
       <TouchableOpacity
         style={[styles.button, { backgroundColor: "#05B150" }]}
-        onPress={() => navigation.navigate("Directions")}
+        onPress={() => navigation.navigate("Functions")}
       >
-        <Text style={styles.buttonText}>Get Directions</Text>
+        <Text style={styles.buttonText}>Explore</Text>
       </TouchableOpacity>
     </View>
   );
