@@ -1,36 +1,109 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+  Image,
+} from "react-native";
+import * as Speech from "expo-speech";
 
-function HomeScreen({ navigation }) {
+const HomeScreen = ({ navigation }) => {
+  const speak = () => {
+    const thingToSay =
+      " SeeThrough is a navigation app designed for the visually impaired,providing audio guidance and detailed descriptions of surroundings.";
+    Speech.speak(thingToSay);
+  };
+
+  useEffect(() => {
+    speak();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome to the Home Page!</Text>
-      <Button
-        title="Go to Navigate"
-        onPress={() => navigation.navigate('Navigate')}
-        color="#2980b9"
+      <Text style={styles.title}>SeeThru</Text>
+
+      <Image
+        source={require("../assets/blind.png")}
+        style={styles.featureImage}
+        accessibilityLabel="Blind person using the BlindNav app"
       />
-      <Button
-        title="Go to Directions"
-        onPress={() => navigation.navigate('Directions')}
-        color="#16a085"
-      />
+      <Text style={styles.description}>
+        SeeThrough is a navigation app designed for the visually impaired,
+        providing audio guidance and detailed descriptions of surroundings.
+      </Text>
+      <Text style={styles.featureDescription}>
+        Get step-by-step audio instructions to navigate safely through streets,
+        buildings, and public transport.
+      </Text>
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: "#6A776E" }]}
+        onPress={() => navigation.navigate("Navigate")}
+      >
+        <Text style={styles.buttonText}>Start Navigation</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: "#05B150" }]}
+        onPress={() => navigation.navigate("Directions")}
+      >
+        <Text style={styles.buttonText}>Get Directions</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
-    backgroundColor: '#2c3e50',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 20,
   },
-  text: {
-    color: '#ecf0f1',
-    fontSize: 22,
-    fontWeight: 'bold',
+  title: {
+    color: "#09BF46",
+    fontSize: 40,
+    fontWeight: "900",
     marginBottom: 20,
+    textAlign: "center",
+  },
+  description: {
+    color: "#03822D",
+    fontWeight: "600",
+    fontSize: 22,
+    marginTop: 20,
+    marginBottom: 15,
+    textAlign: "center",
+  },
+  featureImage: {
+    width: 300,
+    height: 200,
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  featureDescription: {
+    color: "#FFF",
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  button: {
+    width: "100%",
+    paddingVertical: 15,
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+  buttonText: {
+    color: "#FFF",
+    fontSize: 18,
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });
 

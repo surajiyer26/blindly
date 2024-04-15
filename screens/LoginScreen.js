@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function LoginScreen({ navigation }) {
-  const [prompt, setPrompt] = useState('');
+  const [prompt, setPrompt] = useState("");
 
   const handlePress = () => {
-    setPrompt('Say password...');
+    setPrompt("Say password...");
     setTimeout(() => {
-      navigation.navigate('Home');
+      navigation.navigate("Home");
     }, 2000); // waits 2 seconds before navigating
   };
 
@@ -17,7 +17,7 @@ function LoginScreen({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <MaterialCommunityIcons name="microphone" size={40} color="white" />
       </TouchableOpacity>
-      {prompt !== '' && <Text style={styles.prompt}>{prompt}</Text>}
+      {prompt !== "" && <Text style={styles.prompt}>{prompt}</Text>}
     </View>
   );
 }
@@ -25,25 +25,25 @@ function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#34495e',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     padding: 20,
-    backgroundColor: '#2980b9',
+    backgroundColor: "#01B36C",
     borderRadius: 50,
     elevation: 10, // Only works on Android
-    shadowColor: '#000', // Only works on iOS
+    shadowColor: "#000", // Only works on iOS
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
   },
   prompt: {
     marginTop: 20,
-    color: 'white',
+    color: "black",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 
